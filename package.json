@@ -1,0 +1,23 @@
+{
+  "name": "camper_leaderboard",
+  "version": "1.0.0",
+  "description": "\"Build a Camper Leaderboard\" is a requirement for freeCodeCamp Data Visualization Certification: https://www.freecodecamp.com/challenges/build-a-camper-leaderboard",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo 'Default test'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CharmedSatyr/Camper_Leaderboard.git"
+  },
+  "keywords": [
+	"freeCodeCamp",
+        "ReactJS"
+	],
+  "author": "CharmedSatyr",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/CharmedSatyr/Camper_Leaderboard/issues"
+  },
+  "homepage": "https://github.com/CharmedSatyr/Camper_Leaderboard#readme"
+}
