@@ -5,7 +5,8 @@ var Header = React.createClass(
 		render: function () {
 			return (
         <div className='header'>
-          <a href='https://freeCodeCamp.com'>freeCodeCamp Leaderboard</a>
+          <a href='https://freeCodeCamp.com'>freeCodeCamp</a>
+					<span className='bl'>&#32;Leaderboard</span>
         </div>
       );
 		}

@@ -6733,54 +6733,59 @@ module.exports = getIteratorFn;
 var React = __webpack_require__(17);
 
 var Row = React.createClass({
-	displayName: 'Row',
+    displayName: 'Row',
 
-	render: function () {
-		var bg;
-		if (this.props.id % 2 === 0) {
-			bg = 'dark';
-		} else {
-			bg = 'light';
-		}
+    render: function () {
+        var bg;
+        if (this.props.id % 2 === 0) {
+            bg = 'dark';
+        } else {
+            bg = 'light';
+        }
 
-		return React.createElement(
-			'tr',
-			{ className: bg },
-			React.createElement(
-				'td',
-				null,
-				this.props.id
-			),
-			React.createElement(
-				'td',
-				null,
-				React.createElement(
-					'a',
-					{ href: 'https://freecodecamp.com/' + this.props.data.username, target: '_blank' },
-					React.createElement('img', { src: this.props.data.img })
-				)
-			),
-			React.createElement(
-				'td',
-				null,
-				React.createElement(
-					'a',
-					{ href: 'https://freecodecamp.com/' + this.props.data.username, target: '_blank' },
-					this.props.data.username
-				)
-			),
-			React.createElement(
-				'td',
-				null,
-				this.props.data.recent
-			),
-			React.createElement(
-				'td',
-				null,
-				this.props.data.alltime
-			)
-		);
-	}
+        return React.createElement(
+            'tr',
+            { className: bg },
+            React.createElement(
+                'td',
+                null,
+                React.createElement(
+                    'a',
+                    { href: 'https://freecodecamp.com/' + this.props.data.username, target: '_blank' },
+                    this.props.id
+                )
+            ),
+            React.createElement(
+                'td',
+                null,
+                React.createElement(
+                    'a',
+                    { href: 'https://freecodecamp.com/' + this.props.data.username, target: '_blank' },
+                    React.createElement('img', { src: this.props.data.img }),
+                    ' ',
+                    this.props.data.username
+                )
+            ),
+            React.createElement(
+                'td',
+                null,
+                React.createElement(
+                    'a',
+                    { href: 'https://freecodecamp.com/' + this.props.data.username, target: '_blank' },
+                    this.props.data.recent
+                )
+            ),
+            React.createElement(
+                'td',
+                null,
+                React.createElement(
+                    'a',
+                    { href: 'https://freecodecamp.com/' + this.props.data.username, target: '_blank' },
+                    this.props.data.alltime
+                )
+            )
+        );
+    }
 });
 
 module.exports = Row;
@@ -9504,90 +9509,77 @@ var TableRows = __webpack_require__(85);
 var Row = __webpack_require__(53);
 
 var App = React.createClass({
-	displayName: 'App',
+    displayName: 'App',
 
-	getInitialState: function () {
-		return { recent: [], alltime: [], display: 'recent' };
-	},
-	componentDidMount: function () {
-		var recent = 'https://fcctop100.herokuapp.com/api/fccusers/top/recent';
-		$.get(recent, function (data) {
-			this.setState({
-				recent: data
-			});
-		}.bind(this));
+    getInitialState: function () {
+        return { recent: [], alltime: [], display: 'recent' };
+    },
+    componentDidMount: function () {
+        var recent = 'https://fcctop100.herokuapp.com/api/fccusers/top/recent';
+        $.get(recent, function (data) {
+            this.setState({ recent: data });
+        }.bind(this));
 
-		var alltime = 'https://fcctop100.herokuapp.com/api/fccusers/top/alltime';
-		$.get(alltime, function (data) {
-			this.setState({
-				alltime: data
-			});
-		}.bind(this));
-	},
-	showRecent: function () {
-		this.setState({
-			display: 'recent'
-		});
-	},
-	showAllTime: function () {
-		this.setState({
-			display: 'alltime'
-		});
-	},
-	render: function () {
-		return React.createElement(
-			'div',
-			{ className: 'main' },
-			React.createElement(
-				'table',
-				null,
-				React.createElement(
-					'thead',
-					null,
-					React.createElement(
-						'tr',
-						null,
-						React.createElement(
-							'th',
-							null,
-							'Rank'
-						),
-						React.createElement(
-							'th',
-							null,
-							'Avatar'
-						),
-						React.createElement(
-							'th',
-							null,
-							'Name'
-						),
-						React.createElement(
-							'th',
-							null,
-							React.createElement(
-								'button',
-								{ onClick: this.showRecent },
-								React.createElement('i', { className: 'fa fa-sort' }),
-								'Recent'
-							)
-						),
-						React.createElement(
-							'th',
-							null,
-							React.createElement(
-								'button',
-								{ onClick: this.showAllTime },
-								React.createElement('i', { className: 'fa fa-sort' }),
-								'All Time'
-							)
-						)
-					)
-				),
-				React.createElement(TableRows, { data: this.state[this.state.display] })
-			)
-		);
-	}
+        var alltime = 'https://fcctop100.herokuapp.com/api/fccusers/top/alltime';
+        $.get(alltime, function (data) {
+            this.setState({ alltime: data });
+        }.bind(this));
+    },
+    showRecent: function () {
+        this.setState({ display: 'recent' });
+    },
+    showAllTime: function () {
+        this.setState({ display: 'alltime' });
+    },
+    render: function () {
+        return React.createElement(
+            'div',
+            { className: 'main' },
+            React.createElement(
+                'table',
+                null,
+                React.createElement(
+                    'thead',
+                    null,
+                    React.createElement(
+                        'tr',
+                        null,
+                        React.createElement(
+                            'th',
+                            null,
+                            'Rank'
+                        ),
+                        React.createElement(
+                            'th',
+                            null,
+                            'Name'
+                        ),
+                        React.createElement(
+                            'th',
+                            null,
+                            React.createElement(
+                                'div',
+                                { onClick: this.showRecent },
+                                React.createElement('i', { className: 'fa fa-sort' }),
+                                ' Recent'
+                            )
+                        ),
+                        React.createElement(
+                            'th',
+                            null,
+                            React.createElement(
+                                'div',
+                                { onClick: this.showAllTime },
+                                React.createElement('i', { className: 'fa fa-sort' }),
+                                ' All Time'
+                            )
+                        )
+                    )
+                ),
+                React.createElement(TableRows, { data: this.state[this.state.display] })
+            )
+        );
+    }
 });
 
 module.exports = App;
@@ -9610,6 +9602,12 @@ var Footer = React.createClass({
 				'a',
 				{ href: 'https://facebook.github.io/react/' },
 				'React'
+			),
+			' by ',
+			React.createElement(
+				'a',
+				{ href: 'https://CharmedSatyr.com' },
+				'CharmedSatyr'
 			)
 		);
 	}
@@ -9633,7 +9631,12 @@ var Header = React.createClass({
 			React.createElement(
 				'a',
 				{ href: 'https://freeCodeCamp.com' },
-				'freeCodeCamp Leaderboard'
+				'freeCodeCamp'
+			),
+			React.createElement(
+				'span',
+				{ className: 'bl' },
+				' Leaderboard'
 			)
 		);
 	}
