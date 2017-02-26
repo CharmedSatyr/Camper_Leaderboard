@@ -9515,15 +9515,29 @@ var App = React.createClass({
         return { recent: [], alltime: [], display: 'recent' };
     },
     componentDidMount: function () {
+        var xhrR = new XMLHttpRequest();
         var recent = 'https://fcctop100.herokuapp.com/api/fccusers/top/recent';
-        $.get(recent, function (data) {
-            this.setState({ recent: data });
-        }.bind(this));
 
+        xhrR.onreadystatechange = function () {
+            if (xhrR.readyState === 4 && xhrR.status === 200) {
+                var dataR = JSON.parse(xhrR.responseText);
+                this.setState({ recent: dataR });
+            }
+        }.bind(this);
+        xhrR.open('GET', recent, true);
+        xhrR.send(null);
+
+        var xhrA = new XMLHttpRequest();
         var alltime = 'https://fcctop100.herokuapp.com/api/fccusers/top/alltime';
-        $.get(alltime, function (data) {
-            this.setState({ alltime: data });
-        }.bind(this));
+
+        xhrA.onreadystatechange = function () {
+            if (xhrA.readyState === 4 && xhrA.status === 200) {
+                var dataA = JSON.parse(xhrA.responseText);
+                this.setState({ alltime: dataA });
+            }
+        }.bind(this);
+        xhrA.open('GET', alltime, true);
+        xhrA.send(null);
     },
     showRecent: function () {
         this.setState({ display: 'recent' });
@@ -9558,9 +9572,9 @@ var App = React.createClass({
                             'th',
                             null,
                             React.createElement(
-                                'div',
+                                'button',
                                 { onClick: this.showRecent },
-                                React.createElement('i', { className: 'fa fa-sort' }),
+                                React.createElement('i', { className: this.state.display == 'recent' ? '' : 'fa fa-sort-amount-desc' }),
                                 ' Recent'
                             )
                         ),
@@ -9568,9 +9582,9 @@ var App = React.createClass({
                             'th',
                             null,
                             React.createElement(
-                                'div',
+                                'button',
                                 { onClick: this.showAllTime },
-                                React.createElement('i', { className: 'fa fa-sort' }),
+                                React.createElement('i', { className: this.state.display == 'alltime' ? '' : 'fa fa-sort-amount-desc' }),
                                 ' All Time'
                             )
                         )
