@@ -45,19 +45,19 @@ var App = React.createClass({
                     <thead>
                         <tr>
                             <th>Rank</th>
-                            <th>Name</th>
+                            <th>Camper</th>
                             <th>
                                 <button onClick={this.showRecent}>
                                     <i className={this.state.display == 'recent'
                                         ? ''
-                                        : 'fa fa-sort-amount-desc'}></i>&#32;Recent
+                                        : 'fa fa-sort-amount-desc'}></i>&#32;Recent Points
                                 </button>
                             </th>
                             <th>
                                 <button onClick={this.showAllTime}>
                                     <i className={this.state.display == 'alltime'
                                         ? ''
-                                        : 'fa fa-sort-amount-desc'}></i>&#32;All Time
+                                        : 'fa fa-sort-amount-desc'}></i>&#32;Total Score
                                 </button>
                             </th>
                         </tr>
