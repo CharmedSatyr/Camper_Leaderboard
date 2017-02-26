@@ -50,6 +50,24 @@ body {
     text-align: center;
 }
 
+button {
+  background: $green;
+  border-radius: 5%;
+  color: $white;
+  font-family: monospace;
+  font-size: $usual * 0.5;
+  font-weight: 800;
+  height: $usual * 0.8;
+}
+
+.fa {
+  color: $black;
+  font-size: $usual * 0.4 !important;
+  margin: 0 -0.8vh 0 0;
+}
+
+
+
 table {
     border: 1px solid $dark;
     border-collapse: collapse;
@@ -79,12 +97,6 @@ table {
             background: $highlight;
         }
     }
-}
-
-.fa {
-  color: $black;
-  font-size: $usual * 0.3 !important;
-  margin: 0 -1vh 0 0;
 }
 
 img {
