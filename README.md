@@ -1,5 +1,6 @@
 # Camper Leaderboard
 ### "Build a Camper Leaderboard" is a requirement for freeCodeCamp Data Visualization Certification: https://www.freecodecamp.com/challenges/build-a-camper-leaderboard
+**Date Completed: February 26, 2017**
 
 >1. **Objective**: Build a [CodePen.io]('https://www.codepen.io')  app that is functionally similar to this: https://codepen.io/FreeCodeCamp/full/eZGMjp/.
 
