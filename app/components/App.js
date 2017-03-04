@@ -1,42 +1,35 @@
-var React = require('react');
-var TableRows = require('./TableRows');
-var Row = require('./Row');
+'use strict';
 
-var App = React.createClass({
+const React = require('react');
+
+const recent = 'https://fcctop100.herokuapp.com/api/fccusers/top/recent';
+const alltime = 'https://fcctop100.herokuapp.com/api/fccusers/top/alltime';
+
+const App = React.createClass({
+
     getInitialState: function() {
-        return {recent: [], alltime: [], display: 'recent'}
+        return {users: [], show: 'recent'}
     },
-    componentDidMount: function() {
-        var xhrR = new XMLHttpRequest();
-        var recent = 'https://fcctop100.herokuapp.com/api/fccusers/top/recent';
+    pullInfo: function(url, show) {
+        const xhr = new XMLHttpRequest();
 
-        xhrR.onreadystatechange = function() {
-            if (xhrR.readyState === 4 && xhrR.status === 200) {
-                var dataR = JSON.parse(xhrR.responseText);
-                this.setState({recent: dataR});
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                const data = JSON.parse(xhr.responseText);
+                this.setState({users: data, show: show});
             }
         }.bind(this);
-        xhrR.open('GET', recent, true);
-        xhrR.send(null);
-
-        var xhrA = new XMLHttpRequest();
-        var alltime = 'https://fcctop100.herokuapp.com/api/fccusers/top/alltime';
-
-        xhrA.onreadystatechange = function() {
-            if (xhrA.readyState === 4 && xhrA.status === 200) {
-                var dataA = JSON.parse(xhrA.responseText);
-                this.setState({alltime: dataA});
-            }
-        }.bind(this);
-        xhrA.open('GET', alltime, true);
-        xhrA.send(null);
-
+        xhr.open('GET', url, true);
+        xhr.send(null);
     },
     showRecent: function() {
-        this.setState({display: 'recent'});
+        this.pullInfo(recent, 'recent');
     },
     showAllTime: function() {
-        this.setState({display: 'alltime'});
+        this.pullInfo(alltime, 'alltime');
+    },
+    componentWillMount: function() {
+        this.pullInfo(recent, 'recent');
     },
     render: function() {
         return (
@@ -48,21 +41,63 @@ var App = React.createClass({
                             <th>Camper</th>
                             <th>
                                 <button onClick={this.showRecent}>
-                                    <i className={this.state.display == 'recent'
-                                        ? ''
+                                    <i className={this.state.show == 'recent'
+                                        ? 'fa fa-check'
                                         : 'fa fa-sort-amount-desc'}></i>&#32;Recent Points
                                 </button>
                             </th>
                             <th>
                                 <button onClick={this.showAllTime}>
-                                    <i className={this.state.display == 'alltime'
-                                        ? ''
+                                    <i className={this.state.show == 'alltime'
+                                        ? 'fa fa-check'
                                         : 'fa fa-sort-amount-desc'}></i>&#32;Total Score
                                 </button>
                             </th>
                         </tr>
                     </thead>
-                    <TableRows data={this.state[this.state.display]}/>
+                    <tbody>
+                        {this.state.users.map(function(user, index) {
+
+                            const insecureRegex = /http:/gi;
+                            const altImg = 'https://github.com/identicons/jasonlong.png';
+
+                            function secure(site, sub) {
+                                if ((site).match(insecureRegex)) {
+                                    console.log('Insecure site found and fixed');
+                                    return sub;
+                                } else {
+                                    return site;
+                                }
+                            }
+                            return (
+                                <tr className={(index % 2 === 0)
+                                    ? 'dark'
+                                    : 'light'}>
+                                    <td>
+                                        <a href={'https://freecodecamp.com/' + user.username}>
+                                            {index + 1}
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href={'https://freecodecamp.com/' + user.username}>
+                                            <img src={secure(user.img, altImg)}/> {user.username}
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href={'https://freecodecamp.com/' + user.username}>
+                                            {user.recent}
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href={'https://freecodecamp.com/' + user.username}>
+                                            {user.alltime}
+                                        </a>
+                                    </td>
+                                </tr>
+                            );
+                        })
+}
+                    </tbody>
                 </table>
             </div>
         );

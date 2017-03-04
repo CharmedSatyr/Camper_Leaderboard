@@ -1,6 +1,6 @@
-var React = require('react');
+const React = require('react');
 
-var Footer = React.createClass(
+const Footer = React.createClass(
 	{
 		render: function () {
 			return (
