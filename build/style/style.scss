@@ -27,7 +27,7 @@ body {
     height: $usual;
     line-height: $usual;
     position: fixed;
-    width: 100%;
+    width: 99%;
     z-index: 1;
     a {
         color: $white;
@@ -98,6 +98,9 @@ table {
             &:hover {
                 text-decoration: none;
             }
+        }
+        tr td a {
+          display: block;
         }
         tr:hover {
             background: $highlight;

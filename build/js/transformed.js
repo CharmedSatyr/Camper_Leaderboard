@@ -9545,7 +9545,7 @@ const App = React.createClass({
                                 null,
                                 React.createElement(
                                     'a',
-                                    { href: 'https://freecodecamp.com/' + user.username },
+                                    { href: 'https://freecodecamp.com/' + user.username, target: '_blank' },
                                     index + 1
                                 )
                             ),
@@ -9554,7 +9554,7 @@ const App = React.createClass({
                                 null,
                                 React.createElement(
                                     'a',
-                                    { href: 'https://freecodecamp.com/' + user.username },
+                                    { href: 'https://freecodecamp.com/' + user.username, target: '_blank' },
                                     React.createElement('img', { src: secure(user.img, altImg) }),
                                     ' ',
                                     user.username
@@ -9565,7 +9565,7 @@ const App = React.createClass({
                                 null,
                                 React.createElement(
                                     'a',
-                                    { href: 'https://freecodecamp.com/' + user.username },
+                                    { href: 'https://freecodecamp.com/' + user.username, target: '_blank' },
                                     user.recent
                                 )
                             ),
@@ -9574,7 +9574,7 @@ const App = React.createClass({
                                 null,
                                 React.createElement(
                                     'a',
-                                    { href: 'https://freecodecamp.com/' + user.username },
+                                    { href: 'https://freecodecamp.com/' + user.username, target: '_blank' },
                                     user.alltime
                                 )
                             )

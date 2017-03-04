@@ -74,22 +74,22 @@ const App = React.createClass({
                                     ? 'dark'
                                     : 'light'}>
                                     <td>
-                                        <a href={'https://freecodecamp.com/' + user.username}>
+                                        <a href={'https://freecodecamp.com/' + user.username} target='_blank'>
                                             {index + 1}
                                         </a>
                                     </td>
                                     <td>
-                                        <a href={'https://freecodecamp.com/' + user.username}>
+                                        <a href={'https://freecodecamp.com/' + user.username} target='_blank'>
                                             <img src={secure(user.img, altImg)}/> {user.username}
                                         </a>
                                     </td>
                                     <td>
-                                        <a href={'https://freecodecamp.com/' + user.username}>
+                                        <a href={'https://freecodecamp.com/' + user.username} target='_blank'>
                                             {user.recent}
                                         </a>
                                     </td>
                                     <td>
-                                        <a href={'https://freecodecamp.com/' + user.username}>
+                                        <a href={'https://freecodecamp.com/' + user.username} target='_blank'>
                                             {user.alltime}
                                         </a>
                                     </td>
