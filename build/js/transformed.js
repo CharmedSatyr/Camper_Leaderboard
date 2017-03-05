@@ -9505,7 +9505,7 @@ const App = React.createClass({
                             React.createElement(
                                 'button',
                                 { onClick: this.showRecent },
-                                React.createElement('i', { className: this.state.show == 'recent' ? 'fa fa-check' : 'fa fa-sort-amount-desc' }),
+                                React.createElement('i', { className: this.state.show == 'recent' ? 'fa fa-trophy' : 'fa fa-sort-amount-desc' }),
                                 ' Recent Points'
                             )
                         ),
@@ -9515,7 +9515,7 @@ const App = React.createClass({
                             React.createElement(
                                 'button',
                                 { onClick: this.showAllTime },
-                                React.createElement('i', { className: this.state.show == 'alltime' ? 'fa fa-check' : 'fa fa-sort-amount-desc' }),
+                                React.createElement('i', { className: this.state.show == 'alltime' ? 'fa fa-trophy' : 'fa fa-sort-amount-desc' }),
                                 ' Total Score'
                             )
                         )

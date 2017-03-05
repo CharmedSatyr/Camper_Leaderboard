@@ -42,14 +42,14 @@ const App = React.createClass({
                             <th>
                                 <button onClick={this.showRecent}>
                                     <i className={this.state.show == 'recent'
-                                        ? 'fa fa-check'
+                                        ? 'fa fa-trophy'
                                         : 'fa fa-sort-amount-desc'}></i>&#32;Recent Points
                                 </button>
                             </th>
                             <th>
                                 <button onClick={this.showAllTime}>
                                     <i className={this.state.show == 'alltime'
-                                        ? 'fa fa-check'
+                                        ? 'fa fa-trophy'
                                         : 'fa fa-sort-amount-desc'}></i>&#32;Total Score
                                 </button>
                             </th>
