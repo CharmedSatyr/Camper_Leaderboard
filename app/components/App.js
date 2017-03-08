@@ -70,7 +70,7 @@ const App = React.createClass({
                                 }
                             }
                             return (
-                                <tr className={(index % 2 === 0)
+                                <tr key={index} className={(index % 2 === 0)
                                     ? 'dark'
                                     : 'light'}>
                                     <td>
@@ -96,7 +96,7 @@ const App = React.createClass({
                                 </tr>
                             );
                         })
-}
+                      }
                     </tbody>
                 </table>
             </div>
