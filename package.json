@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/CharmedSatyr/Camper_Leaderboard.git"
+    "url": "git+https://github.com/CharmedSatyr-freeCodeCamp/Camper_Leaderboard.git"
   },
   "keywords": [
     "freeCodeCamp",
@@ -18,9 +18,9 @@
   "author": "CharmedSatyr",
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/CharmedSatyr/Camper_Leaderboard/issues"
+    "url": "https://github.com/CharmedSatyr-freeCodeCamp/Camper_Leaderboard/issues"
   },
-  "homepage": "https://github.com/CharmedSatyr/Camper_Leaderboard#readme",
+  "homepage": "https://github.com/CharmedSatyr-freeCodeCamp/Camper_Leaderboard#readme",
   "dependencies": {
     "react": "^15.4.2",
     "react-dom": "^15.4.2"
